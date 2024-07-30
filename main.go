@@ -5,11 +5,12 @@ import (
 	"time"
 )
 
+var vpn Vpn_state = Vpn_state{connected: true}
+
 func main() {
-	c := Vpn_state{connected: true}
-	c.start_pings("golang.org:http")
+	vpn.start_pings("golang.org:http")
 	for {
-		fmt.Printf("Status :%v\n", c.get_state())
+		fmt.Printf("Status :%v\n", vpn.get_state())
 		time.Sleep(1 * time.Second)
 	}
 }
